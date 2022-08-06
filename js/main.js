@@ -1,13 +1,11 @@
-function getData(){
-    //let fecha= document.getElementById("fechaIngreso").value;
-    //let movimiento = document.getElementById("movimiento").value;
+function getData2(){
+    let fecha= document.getElementById("fechaIngreso").value;
+    let movimiento = document.getElementById("movimiento").value;
     let letras = document.getElementById("letrasUnidad").value;
     let numeros = +document.getElementById("numerosUnidad").value;
     let largo = document.getElementById("largo").value;
     let peso =+document.getElementById("pesoTarro").value;
-    let detener=false
-    
-    
+
     if (letras =="") {
         alert("INGRESE LETRAS")
         letras =document.getElementById("letrasUnidad").focus();
@@ -24,23 +22,41 @@ function getData(){
                 alert("ingrese PESO DEL TARRO")
                 peso =+document.getElementById("pesoTarro").focus();
             }
-    
 
-
-        
-        
-        
-        
-        
-        
-    
-    
-    // alert    ("la fecha es "+ fecha)
-    // alert    ("el movimiento es"+ movimiento)
-    // alert    ("la letras es"+ letras)
-    // alert    ("el numero es"+ numeros)
-    // alert    ("el alrgo es"+ largo)
-    // alert    ("el peso es"+ peso)
-    
-    
+    ///esta parte es un objeto--- const con llaves"
+    const tarro={
+        fecha: document.getElementById("fechaIngreso").value,
+        movimiento : document.getElementById("movimiento").value,
+        letras : document.getElementById("letrasUnidad").value,
+        numeros : +document.getElementById("numerosUnidad").value,
+        largo : document.getElementById("largo").value,
+        peso :+document.getElementById("pesoTarro").value,
+    }
+    console.log(tarro)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
