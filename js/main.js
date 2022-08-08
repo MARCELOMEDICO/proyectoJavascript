@@ -33,19 +33,15 @@ function getData2(e){
     
     console.log(tarroNew.join("\n"))
     let taro = document.querySelector("#pushTarros")//selcciono donde voy a colocar el texto
-    taro.innerHTML="<h2>el ultimo tarro que ingresaste fue</h2>";
-    taro.className=("nuevo")
+    taro.innerHTML="<h2>el ultimo tarro que ingresaste fue</h2>";//analo un titulo
+    taro.className=("nuevo")//se grega una clase
     let p =document.createElement("p")
-    p.innerHTML=tarroNew
-    taro.append(p)
-    document.getElementById("pushTarros").style.color="red" 
-    
-
-    
-    
+    p.innerHTML=tarroNew//a p le alamceno todo el array
+    taro.append(p)//añano el contenido de p en la seleccion de taro
+    document.getElementById("pushTarros").style.color="red" //le cambio el color al texto  
 }
-    
-
+let pushBtn = document.getElementById("enviar")//hace referencia al ID y lo almacena en pushBtn
+pushBtn.onmousedown= ()=> {console.log("hiciste click en enviar")}//usa una fuction anonima o fleca mejor conocida
 
 
 
