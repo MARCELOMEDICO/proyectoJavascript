@@ -16,7 +16,7 @@
         <input type="date" name="fechaIngreso" id="fechaIngreso">
         <select id="movimiento" >
             <option value=""></option>
-            <option value="SIT A CIT">SIT A CIT</option>
+            <option value="SIT A CIT">STI A CIT</option>
             <option value="PCE A CIT">PCE A CIT</option>
             <option value="VACIOS">VACIOS</option>
             <option value="ESPECIALES">ESPECIALES</option>
@@ -25,13 +25,19 @@
         <input type="number" id="numerosUnidad" placeholder="NUMEROS unidad">
         <select id="largo">
             <option value=""></option>
-            <option value="20">20"</option>
-            <option value="40">40"</option>
+            <option value="20`">20"</option>
+            <option value="40`">40"</option>
         </select>
         <input type="number" id="pesoTarro" placeholder="Romaneo">
-        <button type="submit" onclick="getData2()">CARGAR DATOS</button>
+        <button type="submit" onclick="getData2(event)">CARGAR DATOS</button>
     </form>  
+    
     </fieldset>
-    <script src="././js/main.js"></script>
+    <!-- aqui es donde se agregaran los tarros nuevos -->
+    <div id="pushTarros"></div>
+
+
+    
+    <script src="./js/main.js"></script>
 </body>
 </html>

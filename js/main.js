@@ -1,4 +1,6 @@
-function getData2(){
+function getData2(e){
+    e.preventDefault();
+
     let fecha= document.getElementById("fechaIngreso").value;
     let movimiento = document.getElementById("movimiento").value;
     let letras = document.getElementById("letrasUnidad").value;
@@ -23,23 +25,26 @@ function getData2(){
     //             alert("ingrese PESO DEL TARRO")
     //             peso =+document.getElementById("pesoTarro").focus();
     //         }
-    const listaTarros =[]
-    const tarroNew=[
-        fecha= document.getElementById("fechaIngreso").value,
-        movimiento = document.getElementById("movimiento").value,
-        letras = document.getElementById("letrasUnidad").value,
-        numeros = +document.getElementById("numerosUnidad").value,
-        largo = document.getElementById("largo").value,
-        peso =+document.getElementById("pesoTarro").value,
-    ]
-    listaTarros.push(fecha,movimiento,letras,numeros,largo,peso)
-    console.log(listaTarros)
+
+
+    //AQUI AGREGA CONTENIDO AL ARRAY
+    const tarroNew=[]
+    tarroNew.push(fecha,movimiento,letras,numeros,largo,peso)
     
+    console.log(tarroNew.join("\n"))
+    let taro = document.querySelector("#pushTarros")//selcciono donde voy a colocar el texto
+    taro.innerHTML="<h2>el ultimo tarro que ingresaste fue</h2>";
+    taro.className=("nuevo")
+    let p =document.createElement("p")
+    p.innerHTML=tarroNew
+    taro.append(p)
+    document.getElementById("pushTarros").style.color="red" 
+    
+
     
     
 }
     
-
 
 
 
