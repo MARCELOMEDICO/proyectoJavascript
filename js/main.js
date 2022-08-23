@@ -1,50 +1,56 @@
-function getData2(e){
-    e.preventDefault();
-
-    let fecha= document.getElementById("fechaIngreso").value;
-    let movimiento = document.getElementById("movimiento").value;
-    let letras = document.getElementById("letrasUnidad").value;
-    let numeros = +document.getElementById("numerosUnidad").value;
-    let largo = document.getElementById("largo").value;
-    let peso =+document.getElementById("pesoTarro").value;
-    
-
-    // if (letras =="") {
-    //     alert("INGRESE LETRAS")
-    //     letras =document.getElementById("letrasUnidad").focus();
-    // }else 
-    //     if(numeros ==""){
-    //         alert("ingrese valor a NUMEROS")
-    //         numeros=+document.getElementById("numerosUnidad").focus();
-    //     }else 
-    //         if(largo ==""){
-    //         alert("ingrese MEDIDA")
-    //         largo = document.getElementById("largo").focus();
-    //     }else 
-    //         if(peso==""){
-    //             alert("ingrese PESO DEL TARRO")
-    //             peso =+document.getElementById("pesoTarro").focus();
-    //         }
-
-
-    //AQUI AGREGA CONTENIDO AL ARRAY
-    const tarroNew=[]
-    tarroNew.push(fecha,movimiento,letras,numeros,largo,peso)
-    
-    console.log(tarroNew.join("\n"))
-    let taro = document.querySelector("#pushTarros")//selcciono donde voy a colocar el texto
-    taro.innerHTML="<h2>el ultimo tarro que ingresaste fue</h2>";//analo un titulo
-    taro.className=("nuevo")//se grega una clase
-    let p =document.createElement("p")
-    p.innerHTML=tarroNew//a p le alamceno todo el array
-    taro.append(p)//añano el contenido de p en la seleccion de taro
-    document.getElementById("pushTarros").style.color="red" //le cambio el color al texto  
-}
 let pushBtn = document.getElementById("enviar")//hace referencia al ID y lo almacena en pushBtn
-pushBtn.onmousedown= ()=> {console.log("hiciste click en enviar")}//usa una fuction anonima o fleca mejor conocida
+pushBtn.onmousedown= ()=> {console.log("hiciste click en CARGAR DATOS")}//usa una fuction anonima o fleca mejor conocida
+
+function getData2(){
+    // e.preventDefault();
+    const tarroNew=[]
+    const fecha= document.getElementById("fechaIngreso").value;
+    const movimiento = document.getElementById("movimiento").value;
+    const letras = document.getElementById("letrasUnidad").value;
+    const numeros = +document.getElementById("numerosUnidad").value;
+    const largo = document.getElementById("largo").value;
+    const peso =+document.getElementById("pesoTarro").value;
+    tarroNew.push(fecha,movimiento,letras,numeros,largo,peso)
+
+    if(isNaN(fecha)&& isNaN(movimiento)&& letras != ""&& numeros!="" && isNaN(largo) && peso!="" ){    
+        const $div_padre = document.getElementById("pushTarros")
+        const $div_hijo =document.createElement("div")
+        $div_hijo.className="row align-items-center"
+        $div_padre.appendChild($div_hijo)
+        for(const tarroIN of tarroNew){
+            const $div1 = document.createElement("div")
+            $div1.className="col"
+            $div1.setAttribute("id","hijo")
+            $div1.innerHTML=tarroIN
+            $div_hijo.appendChild($div1)
+        }
+    }else{
+        console.log("completar los campos")
+    }
+    document.getElementById("pushTarros").style.color="red" //le cambio el color al texto
+    //ALMACENANDO EN SESSIONSTORAGE
+    sessionStorage.setItem('tarroIN',JSON.stringify(tarroNew));  //se envia la info en modo STRING
+    const enJAVA =JSON.parse(sessionStorage.getItem("tarroIN"))//se obtiene info modo OBJECT
+    
+    
+    
+}
+//RESETAR EL FORMULARIO 
+function reset_formulario(){
+    document.getElementById("formulario").reset()
+}
 
 
 
+
+
+
+// localStorage.clear()
+
+
+
+
+ 
 
 
 

@@ -4,7 +4,23 @@
     box-sizing: border-box;
 }
 body{
-    background-color: darkgray;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(119,191,137,1) 39%, rgba(107,210,67,0.7888631090487239) 49%, rgba(253,187,45,1) 100%);
     min-height: 100vh;
     border: solid 2px red;
+    display: grid;
+    
+
+}
+#pushTarros{
+    border: solid 3px chartreuse;
+}
+
+.col{
+    border: solid 3px rgb(17, 19, 16);
+    
+}
+footer{
+    font-size: larger;
+    margin-top: auto;
 }
